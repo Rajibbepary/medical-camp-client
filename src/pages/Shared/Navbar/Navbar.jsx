@@ -1,5 +1,5 @@
 import {  NavLink } from "react-router-dom";
-import logo from '../../../assets/medical-camp-logo-designs-health-service-clinic-hospital-symbols_1093924-875.avif'
+import logo from '../../../assets/banner/medical-camp-logo-designs-health-service-clinic-hospital-symbols_1093924-875.avif'
 import { FaShoppingCart } from "react-icons/fa";
 
 
