@@ -16,7 +16,7 @@ const Login = () => {
     
   
     // Email Password Signin
-    const handleSignIn =  e => {
+    const handleSignIn = e => {
       e.preventDefault()
       const form = e.target
       const email = form.email.value

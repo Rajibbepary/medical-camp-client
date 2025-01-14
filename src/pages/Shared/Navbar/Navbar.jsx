@@ -4,7 +4,7 @@ import { FaShoppingCart } from "react-icons/fa";
 
 
 const Navbar = () => {
-    const links = <div className='flex max-sm:bg-none max-sm:text-black uppercase max-sm:flex-col gap-1'>
+    const links = <div className='flex max-sm:bg-none  max-sm:text-black uppercase max-sm:flex-col gap-1'>
     
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to='/available'>Available Camps</NavLink></li>
@@ -19,7 +19,7 @@ const Navbar = () => {
     </div>
 
     return (
-        <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl bg-black text-white">
+        <div className="navbar fixed z-10 bg-opacity-10 max-w-screen-xl bg-black text-white">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
