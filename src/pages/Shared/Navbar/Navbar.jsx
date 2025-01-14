@@ -1,10 +1,10 @@
 import {  NavLink } from "react-router-dom";
-import logo from '../../../assets/banner/medical-camp-logo-designs-health-service-clinic-hospital-symbols_1093924-875.avif'
+import logo from '../../../assets/banner/medical_care_logo-removebg-preview.png'
 import { FaShoppingCart } from "react-icons/fa";
 
 
 const Navbar = () => {
-    const links = <div className='flex uppercase max-sm:flex-col gap-1'>
+    const links = <div className='flex max-sm:bg-none max-sm:text-black uppercase max-sm:flex-col gap-1'>
     
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to='/available'>Available Camps</NavLink></li>
@@ -42,8 +42,8 @@ const Navbar = () => {
        {links}
       </ul>
     </div>
-    <a className="btn btn-ghost text-xl">
-      <img src={logo} className="w-12" alt="" />
+    <a className="">
+      <img src={logo} className="w-20 object-cover" alt="" />
     </a>
   </div>
   <div className="navbar-center hidden lg:flex">
