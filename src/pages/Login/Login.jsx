@@ -4,16 +4,17 @@ import logo from '../../assets/banner/medical-camp-logo-designs-health-service-c
 import Lottie from 'lottie-react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
 import { toast } from "react-toastify";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { Helmet } from "react-helmet-async";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Login = () => {
-    const navigate = useNavigate()
+ const navigate = useNavigate()
   const location = useLocation();
-
+  const {signIn} = useContext(AuthContext);
     const from = location.state?.from?.pathname || "/";
     const [showPassword, setShowPassword] = useState(false)
-    
-    
+
   
     // Email Password Signin
     const handleSignIn = e => {
@@ -22,12 +23,12 @@ const Login = () => {
       const email = form.email.value
       const password = form.password.value
       console.log( email, password )
-     // signIn(email, password)
+      signIn(email, password)
       .then(result => {
         const user = result.user;
        console.log(user);
        toast.success('Signin Successful')
-       //navigate('/')
+       navigate('/')
        navigate(from, { replace: true });
       })
 }
@@ -47,7 +48,9 @@ const handleGoogleSignIn = async () => {
 
     return (
         <>
-       
+       <Helmet>
+        <title>MCMS | Login</title>
+       </Helmet>
          <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12'>
              
              <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>

@@ -4,9 +4,7 @@ import logo from '../../assets/banner/medical-camp-logo-designs-health-service-c
 import { useState } from 'react'
 import Lottie from 'lottie-react'
 import { FaEye, FaEyeSlash } from 'react-icons/fa'
-
-
-
+import { Helmet } from 'react-helmet-async'
 
 const Register = () => {
 
@@ -14,7 +12,9 @@ const Register = () => {
     
     return (
         <>
-
+      <Helmet>
+        <title> MCMS | Register</title>
+      </Helmet>
   <div className='flex justify-center items-center min-h-[calc(100vh-306px)] my-12'>
 <div className='flex w-full max-w-sm mx-auto overflow-hidden bg-white rounded-lg shadow-lg  lg:max-w-4xl '>
   <div className='w-full px-6 py-8 md:px-8 lg:w-1/2'>
