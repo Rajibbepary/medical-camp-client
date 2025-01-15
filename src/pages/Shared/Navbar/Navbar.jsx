@@ -7,12 +7,12 @@ import { AuthContext } from "../../../providers/AuthProvider";
 
 const Navbar = () => {
 
-  const { user } = useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext)
 
     const links = <div className='flex max-sm:bg-none  max-sm:text-black uppercase max-sm:flex-col gap-1'>
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to='/available'>Available Camps</NavLink></li>
-    <li><NavLink to='/'>
+    <li><NavLink >
   <div className="badge badge-secondary">
   <FaShoppingCart className="mr-2"/>
     +{}</div>
@@ -53,27 +53,28 @@ const Navbar = () => {
     {links}
     </ul>
   </div>
-
-  {/* dropdown part start */}
+        {/* dropdown part start */}
  
   <div className="navbar-end mr-6">
-  { (
+  {!user && (
+            
               <ul>
-                <NavLink to='/login'>Join US </NavLink>
+                <NavLink to='/login'>Login</NavLink>
               </ul>
+            
           )}
-           {(
+           {user && (
           <div className='dropdown dropdown-end z-50'>
             <div
               tabIndex={0}
               role='button'
               className='btn btn-ghost btn-circle avatar'
             >
-              <div className='w-10 rounded-full'>
+              <div title={user?.displayName} className='w-10 rounded-full'>
                 <img
                   referrerPolicy='no-referrer'
                   alt='User Profile Photo'
-                  src={''}
+                  src={user?.photoURL}
                 />
               </div>
             </div>
@@ -81,10 +82,9 @@ const Navbar = () => {
               tabIndex={0}
               className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
             >
-             <li className=" bg-white text-black"><NavLink to='/dashboard/cart'>Dashboard</NavLink></li>
               <li className='mt-2 bg-white text-black'>
                 <button
-                  onClick={''}
+                  onClick={logOut}
                   className='bg-gray-200 block text-center'
                 >
                   Logout
@@ -93,6 +93,8 @@ const Navbar = () => {
             </ul>
           </div>
         )}
+
+  {/* dropdown part end */}
   </div>
 </div>
     );

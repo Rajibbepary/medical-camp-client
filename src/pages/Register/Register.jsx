@@ -11,8 +11,8 @@ import { toast } from 'react-toastify'
 
 const Register = () => {
   const navigate = useNavigate()
-  const {register, handleSubmit, reset, formState: { errors } } = useForm();
-  const {  signInWithGoogle,createUser, updateUserProfile } = useContext(AuthContext)
+  const {register, handleSubmit, formState: { errors } } = useForm();
+  const {  signInWithGoogle,createUser} = useContext(AuthContext)
    const [showPassword, setShowPassword] = useState(false)
 
    const onSubmit = data => {

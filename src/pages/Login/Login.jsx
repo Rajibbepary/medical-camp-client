@@ -11,7 +11,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 const Login = () => {
  const navigate = useNavigate()
   const location = useLocation();
-  const {signIn} = useContext(AuthContext);
+  const {signInWithGoogle, signIn} = useContext(AuthContext);
     const from = location.state?.from?.pathname || "/";
     const [showPassword, setShowPassword] = useState(false)
 
@@ -27,7 +27,7 @@ const Login = () => {
       .then(result => {
         const user = result.user;
        console.log(user);
-       toast.success('Signin Successful')
+       toast.success('Login Successful')
        navigate('/')
        navigate(from, { replace: true });
       })
@@ -35,10 +35,9 @@ const Login = () => {
 
 const handleGoogleSignIn = async () => {
   try {
-   // await signInWithGoogle()
-
+    await signInWithGoogle()
     toast.success('Signin Successful')
-    //navigate('/')
+    navigate('/')
     navigate(from, { replace: true });
   } catch (err) {
     console.log(err)
