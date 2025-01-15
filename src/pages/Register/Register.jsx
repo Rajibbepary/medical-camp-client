@@ -8,11 +8,12 @@ import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
 import { AuthContext } from '../../providers/AuthProvider'
 import { toast } from 'react-toastify'
+import Swal from 'sweetalert2'
 
 const Register = () => {
   const navigate = useNavigate()
-  const {register, handleSubmit, formState: { errors } } = useForm();
-  const {  signInWithGoogle,createUser} = useContext(AuthContext)
+  const {register, handleSubmit, reset, formState: { errors } } = useForm();
+  const {  signInWithGoogle,createUser,  updateUserProfile } = useContext(AuthContext)
    const [showPassword, setShowPassword] = useState(false)
 
    const onSubmit = data => {
@@ -21,7 +22,22 @@ const Register = () => {
     .then(result => {
       const loggedUser = result.user;
       console.log(loggedUser)
+      updateUserProfile(data.name, data.photoURL)
+      .then(() =>{
+        console.log('user profile info updated')
+        reset();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Your work has been saved",
+          showConfirmButton: false,
+          timer: 1500
+        });
+        navigate('/')
+      })
+      .catch(error => console.log(error))
     })
+    
     };
 
   
@@ -120,6 +136,7 @@ const Register = () => {
               </label>
               <input
                 id='photo'
+                  autoComplete='photoURL'
                 {...register("photoURL", { required: true })}
                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='text'

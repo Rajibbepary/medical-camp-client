@@ -1,0 +1,154 @@
+
+[
+    {
+      "_id": "642c155b2c4774f05c36eeb1",
+      "name": "Free Dental Checkup",
+      "image": "https://i.ibb.co.com/z5vxBc8/istockphoto-1393968591-612x612.jpg",
+      "dateTime": "Feb 10, 2025, 9:00 AM",
+      "location": "City Dental Clinic",
+      "professional": "Dr. Farhana Akter",
+      "participants": 90,
+      "description": "Get your teeth checked and cleaned for free."
+    },
+    {
+      "_id": "642c155b2c4774f05c36eeb2",
+      "name": "Child Nutrition Workshop",
+      "image": "https://i.ibb.co.com/72qsJCT/istockphoto-1392472373-1024x1024.jpg",
+      "dateTime": "Mar 12, 2025, 11:00 AM",
+      "location": "Greenfield Community Center",
+      "professional": "Dr. Tahmid Hossain",
+      "participants": 150,
+      "description": "An awareness session on child nutrition and health."
+    },
+    {
+      "_id": "642c155b2c4774f05c36eeb3",
+      "name": "Mental Health Awareness Camp",
+      "image": "https://i.ibb.co.com/5TtyY7R/istockphoto-1214633924-612x612.jpg",
+      "dateTime": "Apr 15, 2025, 10:30 AM",
+      "location": "Central Psychiatric Hospital",
+      "professional": "Dr. Nusrat Jahan",
+      "participants": 75,
+      "description": "Discuss mental health issues and coping mechanisms."
+    },
+    {
+      "_id": "642c155b2c4774f05c36eeb4",
+      "name": "Women's Health Seminar",
+      "image": "https://i.ibb.co.com/rsrvfNV/istockphoto-1392904568-612x612.jpg",
+      "dateTime": "May 20, 2025, 2:00 PM",
+      "location": "Dhaka Women's Hospital",
+      "professional": "Dr. Rima Ahmed",
+      "participants": 200,
+      "description": "A seminar focused on women's health and well-being."
+    },
+    {
+      "_id": "642c155b2c4774f05c36eeb5",
+      "name": "Blood Donation Camp",
+      "image": "https://i.ibb.co.com/DpxRkqg/premium-photo-1674499074483-246eee58ce4c.jpg",
+      "dateTime": "Jun 5, 2025, 9:30 AM",
+      "location": "Dhaka Red Crescent Society",
+      "professional": "Dr. Mahfuzur Rahman",
+      "participants": 250,
+      "description": "Donate blood and save lives."
+    },
+    {
+      "_id": "642c155b2c4774f05c36eeb6",
+      "name": "Heart Health Awareness",
+      "image": "https://i.ibb.co.com/NZ51tjr/istockphoto-1349688607-612x612.jpg",
+      "dateTime": "Jul 10, 2025, 3:00 PM",
+      "location": "National Cardiology Institute",
+      "professional": "Dr. Shakib Khan",
+      "participants": 180,
+      "description": "Learn how to take care of your heart."
+    },
+    {
+      "_id": "642c155b2c4774f05c36eeb7",
+      "name": "First Aid Training Session",
+      "image": "https://i.ibb.co.com/2sjtKGk/istockphoto-2112296317-612x612.jpg",
+      "dateTime": "Aug 1, 2025, 10:00 AM",
+      "location": "Dhaka Fire Service HQ",
+      "professional": "Dr. Alamgir Hossain",
+      "participants": 100,
+      "description": "Learn essential first aid techniques."
+    },
+    {
+      "_id": "642c155b2c4774f05c36eeb8",
+      "name": "Healthy Lifestyle Campaign",
+      "image": "https://i.ibb.co.com/dJ2TXS4/istockphoto-1748492432-612x612.jpg",
+      "dateTime": "Sep 15, 2025, 4:00 PM",
+      "location": "Dhaka Gymnasium",
+      "professional": "Dr. Imran Chowdhury",
+      "participants": 95,
+      "description": "Adopt a healthier lifestyle for a better life."
+    },
+    {
+      "_id": "642c155b2c4774f05c36eeb9",
+      "name": "Eye Care Camp",
+      "image": "https://i.ibb.co.com/qdmsvZ6/istockphoto-1759078649-612x612.jpg",
+      "dateTime": "Oct 20, 2025, 11:00 AM",
+      "location": "National Eye Institute",
+      "professional": "Dr. Mizanur Rahman",
+      "participants": 130,
+      "description": "Free eye checkups and advice on eye care."
+    },
+    {
+      "_id": "642c155b2c4774f05c36eeba",
+      "name": "Diabetes Management Workshop",
+      "image": "https://i.ibb.co.com/fDnDVfp/istockphoto-1389601298-612x612.jpg",
+      "dateTime": "Nov 5, 2025, 2:30 PM",
+      "location": "Diabetic Association of Bangladesh",
+      "professional": "Dr. Arif Ullah",
+      "participants": 140,
+      "description": "Learn how to manage diabetes effectively."
+    },
+    {
+      "_id": "642c155b2c4774f05c36eebb",
+      "name": "Cancer Awareness Session",
+      "image": "https://i.ibb.co.com/7jPsTcC/istockphoto-1780069668-612x612.jpg",
+      "dateTime": "Dec 12, 2025, 10:00 AM",
+      "location": "National Cancer Research Institute",
+      "professional": "Dr. Samiul Hasan",
+      "participants": 220,
+      "description": "Discuss cancer prevention and early detection."
+    },
+    {
+      "_id": "642c155b2c4774f05c36eebc",
+      "name": "Vaccination Drive",
+      "image": "https://i.ibb.co.com/ZKjTFP6/premium-photo-1667511031501-ba95efee562b.jpg",
+      "dateTime": "Jan 8, 2026, 9:00 AM",
+      "location": "Dhaka Community Clinic",
+      "professional": "Dr. Ayesha Siddiqua",
+      "participants": 300,
+      "description": "Free vaccinations for children and adults."
+    },
+    {
+      "_id": "642c155b2c4774f05c36eebd",
+      "name": "Dental Hygiene Workshop",
+      "image": "https://i.ibb.co.com/5LVMnV5/premium-photo-1664476419863-abc647c1d12f.jpg",
+      "dateTime": "Feb 18, 2026, 1:00 PM",
+      "location": "Modern Dental Hospital",
+      "professional": "Dr. Asif Khan",
+      "participants": 110,
+      "description": "Improve your dental hygiene habits."
+    },
+    {
+      "_id": "642c155b2c4774f05c36eebe",
+      "name": "Skin Care Awareness",
+      "image": "https://i.ibb.co.com/2sjtKGk/istockphoto-2112296317-612x612.jpg",
+      "dateTime": "Mar 25, 2026, 10:30 AM",
+      "location": "Dhaka Dermatology Center",
+      "professional": "Dr. Mahbuba Islam",
+      "participants": 85,
+      "description": "Learn how to take care of your skin."
+    },
+    {
+      "_id": "642c155b2c4774f05c36eebf",
+      "name": "Stress Management Workshop",
+      "image": "https://i.ibb.co.com/72qsJCT/istockphoto-1392472373-1024x1024.jpg",
+      "dateTime": "Apr 30, 2026, 12:00 PM",
+      "location": "Dhaka Medical College",
+      "professional": "Dr. Rezaul Karim",
+      "participants": 160,
+      "description": "Learn effective stress management techniques."
+    }
+  ]
+  

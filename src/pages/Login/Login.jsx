@@ -28,7 +28,6 @@ const Login = () => {
         const user = result.user;
        console.log(user);
        toast.success('Login Successful')
-       navigate('/')
        navigate(from, { replace: true });
       })
 }
@@ -37,7 +36,7 @@ const handleGoogleSignIn = async () => {
   try {
     await signInWithGoogle()
     toast.success('Signin Successful')
-    navigate('/')
+    //navigate('/')
     navigate(from, { replace: true });
   } catch (err) {
     console.log(err)

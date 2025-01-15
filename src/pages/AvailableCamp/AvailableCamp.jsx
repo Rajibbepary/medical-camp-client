@@ -1,15 +1,122 @@
+import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 
-
-
 const AvailableCamp = () => {
-    return (
-        <div>
-            <Helmet>
-                <title>MCMS | Avilable Camp</title>
-            </Helmet>
+  const [layout, setLayout] = useState("grid-cols-3");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortOption, setSortOption] = useState("alphabetical");
+
+  const [camps, setCamps] = useState([]);
+  
+  useEffect(() => {
+    fetch("http://localhost:5000/camp")
+      .then((res) => res.json())
+      .then((data) => {
+        setCamps(data);
+      });
+  }, []);
+
+ 
+  const handleLayoutToggle = () => {
+    setLayout(layout === "grid-cols-3" ? "grid-cols-2" : "grid-cols-3");
+  };
+
+  
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+
+  
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value);
+  };
+
+  
+  const filteredCamps = camps
+    .filter((camp) =>
+      camp.name.toLowerCase().includes(searchTerm.toLowerCase())
+    )
+    .sort((a, b) => {
+      if (sortOption === "alphabetical") {
+        return a.name.localeCompare(b.name);
+      } else if (sortOption === "mostRegistered") {
+        return b.participants - a.participants;
+      } else if (sortOption === "fees") {
+        return a.fees - b.fees;
+      } else {
+        return 0;
+      }
+    });
+
+  return (
+    <div>
+      <Helmet>
+        <title>MCMS | Available Camp</title>
+      </Helmet>
+
+      <div className="container mx-auto p-4">
+        {/* Search, Sort, and Layout Toggle */}
+        <div className="flex flex-col lg:flex-row gap-3 justify-between items-center mb-4">
+          <input
+            type="text"
+            placeholder="Search camps..."
+            className="border p-2 rounded w-full max-w-sm mr-4"
+            value={searchTerm}
+            onChange={handleSearch}
+          />
+          <select
+            className="border p-2 rounded"
+            value={sortOption}
+            onChange={handleSortChange}
+          >
+            <option value="alphabetical">Alphabetical Order</option>
+            <option value="mostRegistered">Most Registered</option>
+            <option value="fees">Camp Fees</option>
+          </select>
+          <button
+            className="bg-green-500 text-white px-4 py-2 rounded ml-4"
+            onClick={handleLayoutToggle}
+          >
+            Change Layout
+          </button>
         </div>
-    );
+
+        {/* Camp Cards */}
+        <div className={`grid gap-4 ${layout}`}>
+          {filteredCamps.map((camp) => (
+            <div key={camp.id} className="bg-white shadow rounded p-4">
+              <img
+                referrerPolicy='no-referrer'
+                src={camp?.image}
+                alt={camp.name}
+                className="w-full h-48 object-cover rounded hover:scale-95 transition"
+              />
+              <h3 className="text-xl font-bold mt-2">{camp.name}</h3>
+              <p className="text-gray-600 mt-1">
+                <strong>Date & Time:</strong> {camp.dateTime}
+              </p>
+              <p className="text-gray-600">
+                <strong>Location:</strong> {camp.location}
+              </p>
+              <p className="text-gray-600">
+                <strong>Healthcare Professional:</strong> {camp.professional}
+              </p>
+              <p className="text-gray-600">
+                <strong>Participants:</strong> {camp.participants}
+              </p>
+              <p className="text-gray-600 mt-2">{camp.description}</p>
+              <a
+                href={`/details/${camp.id}`}
+                className="inline-block mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+              >
+                Details
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default AvailableCamp;

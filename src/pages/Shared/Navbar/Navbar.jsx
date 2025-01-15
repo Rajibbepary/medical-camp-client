@@ -3,25 +3,28 @@ import logo from '../../../assets/banner/medical_care_logo-removebg-preview.png'
 import { FaShoppingCart } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { IoMdKey } from "react-icons/io";
+import { MdOutlinePayment } from "react-icons/md";
+import { IoLocation } from "react-icons/io5";
 
 
 const Navbar = () => {
 
   const { user, logOut } = useContext(AuthContext)
 
+  console.log(user)
+
     const links = <div className='flex max-sm:bg-none  max-sm:text-black uppercase max-sm:flex-col gap-1'>
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to='/available'>Available Camps</NavLink></li>
-    <li><NavLink >
   <div className="badge badge-secondary">
   <FaShoppingCart className="mr-2"/>
     +{}</div>
-    </NavLink></li>
    
     </div>
 
     return (
-        <div className="navbar fixed z-10 bg-opacity-10 max-w-screen-xl bg-black text-white">
+        <div className="navbar  bg-opacity-40 max-w-screen-xl bg-black text-white">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -82,6 +85,9 @@ const Navbar = () => {
               tabIndex={0}
               className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
             >
+              <li className="mt-2 bg-white text-black text-center font-semibold">{user?.displayName}</li>
+              <li className="mt-2 bg-white text-black text-center ">{user?.email}</li>
+              <div className="mt-2 bg-white text-black"> <div className="flex gap-2 text-center text-xl justify-center"><IoMdKey /> <MdOutlinePayment /> <IoLocation /></div></div>
               <li className='mt-2 bg-white text-black'>
                 <button
                   onClick={logOut}
