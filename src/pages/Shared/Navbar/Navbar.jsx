@@ -1,16 +1,18 @@
 import {  NavLink } from "react-router-dom";
 import logo from '../../../assets/banner/medical_care_logo-removebg-preview.png'
 import { FaShoppingCart } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const Navbar = () => {
+
+  const { user } = useContext(AuthContext)
+
     const links = <div className='flex max-sm:bg-none  max-sm:text-black uppercase max-sm:flex-col gap-1'>
-    
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to='/available'>Available Camps</NavLink></li>
     <li><NavLink to='/'>
-    
-    
   <div className="badge badge-secondary">
   <FaShoppingCart className="mr-2"/>
     +{}</div>

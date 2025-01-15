@@ -8,47 +8,27 @@ import { Helmet } from 'react-helmet-async'
 import { useForm } from 'react-hook-form'
 import { AuthContext } from '../../providers/AuthProvider'
 import { toast } from 'react-toastify'
-import useAxiosPublic from '../../hooks/useAxiosPublic'
-
-
 
 const Register = () => {
-  const axiosPublic = useAxiosPublic();
   const navigate = useNavigate()
   const {register, handleSubmit, reset, formState: { errors } } = useForm();
   const {  signInWithGoogle,createUser, updateUserProfile } = useContext(AuthContext)
-  const onSubmit = data => {
-    console.log(data)
+   const [showPassword, setShowPassword] = useState(false)
+
+   const onSubmit = data => {
+    console.log(data);
     createUser(data.email, data.password)
     .then(result => {
       const loggedUser = result.user;
       console.log(loggedUser)
-      updateUserProfile(data.name, data.photo)
-      .then(()=>{
-        const userInfo = {
-          name:data.name,
-          email:data.email
-        }
-        axiosPublic.post('/users', userInfo)
-        .then(res =>{
-          if(res.data.insertedId){
-            reset();
-        toast.success('Signup Successful')
-          }
-        })
-        navigate('/')
-      })
-      .catch(error => console.log(error))
     })
-  }
-    const [showPassword, setShowPassword] = useState(false)
-  
+    };
+
   
     // Google Signin
     const handleGoogleSignIn = async () => {
       try {
         await signInWithGoogle()
-  
         toast.success('Signin Successful')
         navigate('/')
       } catch (err) {
@@ -140,11 +120,11 @@ const Register = () => {
               </label>
               <input
                 id='photo'
-                {...register("photo", { required: true })}
+                {...register("photoURL", { required: true })}
                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
                 type='text'
               />
-               {errors.photo && <span className='text-red-500'>Photo is required</span>}
+               {errors.photoURL && <span className='text-red-500'>Photo is required</span>}
             </div>
             <div className='mt-4'>
               <label
@@ -155,7 +135,7 @@ const Register = () => {
               </label>
               <input
                 id='LoggingEmailAddress'
-                autoComplete='email'
+               //autoComplete='email'
                 {...register("email",{ required: true })}
                 name='email'
                 className='block w-full px-4 py-2 text-gray-700 bg-white border rounded-lg    focus:border-blue-400 focus:ring-opacity-40  focus:outline-none focus:ring focus:ring-blue-300'
