@@ -85,6 +85,9 @@ const Navbar = () => {
               tabIndex={0}
               className='menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52'
             >
+              <div className="flex items-center justify-center " >
+                <img src={user?.photoURL} className="w-10 h-10 border-2 border-green-600 rounded-full object-cover" alt=""/>
+              </div>
               <li className="mt-2 bg-white text-black text-center font-semibold">{user?.displayName}</li>
               <li className="mt-2 bg-white text-black text-center ">{user?.email}</li>
               <div className="mt-2 bg-white text-black"> <div className="flex gap-2 text-center text-xl justify-center"><IoMdKey /> <MdOutlinePayment /> <IoLocation /></div></div>
