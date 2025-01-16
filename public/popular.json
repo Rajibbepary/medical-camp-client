@@ -1,0 +1,70 @@
+
+[
+    {
+      "id": 3,
+      "name": "Healthy Heart Workshop",
+      "image": "https://i.ibb.co.com/72qsJCT/istockphoto-1392472373-1024x1024.jpg",
+      "fees": "৳ 200",
+      "date": "25 January 2025",
+      "time": "10:00 AM - 3:00 PM",
+      "location": "Dhaka Heart Institute",
+      "doctor": "Dr. Mahbub Alam (Cardiologist)",
+      "participants": 45
+    },
+    {
+      "id": 4,
+      "name": "Child Nutrition Camp",
+      "image": "https://i.ibb.co.com/2sjtKGk/istockphoto-2112296317-612x612.jpg",
+      "fees": "৳ 100",
+      "date": "28 January 2025",
+      "time": "11:00 AM - 5:00 PM",
+      "location": "Sylhet Pediatric Center",
+      "doctor": "Dr. Nasrin Jahan (Pediatrician)",
+      "participants": 38
+    },
+    {
+      "id": 5,
+      "name": "Eye Care Awareness Camp",
+      "image": "https://i.ibb.co.com/dJ2TXS4/istockphoto-1748492432-612x612.jpg",
+      "fees": "৳ 150",
+      "date": "30 January 2025",
+      "time": "9:30 AM - 2:30 PM",
+      "location": "Rajshahi Eye Hospital",
+      "doctor": "Dr. Khalid Hossain (Ophthalmologist)",
+      "participants": 52
+    },
+    {
+      "id": 6,
+      "name": "Arthritis Management Seminar",
+      "image": "https://i.ibb.co.com/tY8Xckj/premium-photo-1673953886016-6f0f3d33dddd.jpg",
+      "fees": "৳ 180",
+      "date": "5 February 2025",
+      "time": "10:00 AM - 4:00 PM",
+      "location": "Khulna General Hospital",
+      "doctor": "Dr. Tahmina Akhtar (Rheumatologist)",
+      "participants": 63
+    },
+    {
+      "id": 7,
+      "name": "Stress and Mental Health Camp",
+      "image": "https://i.ibb.co.com/z5vxBc8/istockphoto-1393968591-612x612.jpg",
+      "fees": "৳ 120",
+      "date": "10 February 2025",
+      "time": "9:00 AM - 1:00 PM",
+      "location": "Barisal Mental Wellness Center",
+      "doctor": "Dr. Arif Rahman (Psychiatrist)",
+      "participants": 74
+    },
+    {
+      "id": 8,
+      "name": "Women's Health Awareness Camp",
+      "image": "https://i.ibb.co.com/7jPsTcC/istockphoto-1780069668-612x612.jpg",
+      "fees": "৳ 170",
+      "date": "15 February 2025",
+      "time": "11:00 AM - 3:00 PM",
+      "location": "Jessore Women’s Hospital",
+      "doctor": "Dr. Rubina Yasmin (Gynecologist)",
+      "participants": 58
+    }
+  ]
+  

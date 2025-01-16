@@ -1,6 +1,5 @@
 import {  NavLink } from "react-router-dom";
 import logo from '../../../assets/banner/medical_care_logo-removebg-preview.png'
-import { FaShoppingCart } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
 import { IoMdKey } from "react-icons/io";
@@ -17,9 +16,6 @@ const Navbar = () => {
     const links = <div className='flex max-sm:bg-none  max-sm:text-black uppercase max-sm:flex-col gap-1'>
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to='/available'>Available Camps</NavLink></li>
-  <div className="badge badge-secondary">
-  <FaShoppingCart className="mr-2"/>
-    +{}</div>
    
     </div>
 
@@ -91,6 +87,9 @@ const Navbar = () => {
               <li className="mt-2 bg-white text-black text-center font-semibold">{user?.displayName}</li>
               <li className="mt-2 bg-white text-black text-center ">{user?.email}</li>
               <div className="mt-2 bg-white text-black"> <div className="flex gap-2 text-center text-xl justify-center"><IoMdKey /> <MdOutlinePayment /> <IoLocation /></div></div>
+              <li className='mt-2 bg-white text-black'>
+                <NavLink to='/dashbord'> Dashbord</NavLink>
+                </li>
               <li className='mt-2 bg-white text-black'>
                 <button
                   onClick={logOut}
