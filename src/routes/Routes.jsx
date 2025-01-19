@@ -24,7 +24,7 @@ export  const router = createBrowserRouter([
           element:<AvailableCamp/>
         },
           {
-            path:'/camp-details/:id',
+            path:'camp-details',
             element:<CampDetails/>,
           },
         {

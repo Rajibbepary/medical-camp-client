@@ -15,7 +15,7 @@ const CampDetails = () => {
   }, [id])
 
   const  fetchCampDetails = async () => {
-    const { data } = await axios.get(`http://localhost:5000/camp/${id}` )
+    const { data } = await axios.get('http://localhost:5000/camp')
     setCamp(data)
   }
 
@@ -25,8 +25,8 @@ console.log(camp.data)
   return (
     <div className="p-8">
       <img
-        src={id.image}
-        alt={id.name}
+        src={camp.image}
+        alt={camp.name}
         className="w-full h-64 object-cover rounded-lg"
       />
       <h1 className="text-3xl font-bold mt-4">{camp.name}</h1>
