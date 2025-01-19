@@ -106,7 +106,7 @@ const AvailableCamp = () => {
               </p>
               <p className="text-gray-600 mt-2">{camp.description}</p>
               <a
-                href={`/details/${camp.id}`}
+                href={'camp-details'}
                 className="inline-block mt-4 bg-blue-500 text-white px-4 py-2 rounded"
               >
                 Details

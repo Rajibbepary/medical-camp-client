@@ -1,6 +1,6 @@
+import { Link} from "react-router-dom";
 
-
-const CampCard = ({ camp, onJoin }) => {
+const CampCard = ({ camp }) => {
 
     return (
 
@@ -13,12 +13,13 @@ const CampCard = ({ camp, onJoin }) => {
               <p className="text-gray-700">📍 Location: {camp.location}</p>
               <p className="text-gray-700">👨‍⚕️ Doctor: {camp.doctor}</p>
               <p className="text-gray-700">👥 Participants: {camp.participants}</p>
-              <button
-                onClick={() => onJoin(camp.id)}
-                className="bg-green-500 text-white mt-4 py-2 px-4 rounded hover:bg-green-600"
-              >
-                Join Now
-              </button>
+             <Link to={`/camp-details/${camp._id}`} >
+             <button
+            className="btn btn-outline border-0 mt-4 bg-slate-100 border-orange-300 border-b-4" >
+            View Details
+          </button>
+             </Link>
+            
             </div>
     );
 };

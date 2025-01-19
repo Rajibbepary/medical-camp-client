@@ -11,8 +11,6 @@ const Navbar = () => {
 
   const { user, logOut } = useContext(AuthContext)
 
-  console.log(user)
-
     const links = <div className='flex max-sm:bg-none  max-sm:text-black uppercase max-sm:flex-col gap-1'>
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to='/available'>Available Camps</NavLink></li>

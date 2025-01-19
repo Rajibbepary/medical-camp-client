@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Popular = () => {
     const [camps, setCamps] = useState([]);
      useEffect(() => {
-        fetch("popular.json")
+        fetch("http://localhost:5000/popular")
           .then((res) => res.json())
           .then((data) => {
             setCamps(data);
@@ -31,7 +31,7 @@ const Popular = () => {
       </div>
       <div className="text-center mt-10">
         <Link to='/available'>
-        <button className="bg-blue-600 text-white py-2 px-4 rounded shadow hover:bg-blue-700">
+        <button className="mt-8 bg-gray-800 text-white py-2 px-6 rounded hover:bg-gray-900">
           See All Camps
         </button>
         </Link>
