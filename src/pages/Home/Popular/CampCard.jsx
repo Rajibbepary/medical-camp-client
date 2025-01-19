@@ -1,13 +1,14 @@
 import { Link, useLocation, useNavigate} from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
-import axios from "axios";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const CampCard = ({ camp }) => {
 const {image, name, fees, date, time,location, doctor, participants, _id}  = camp;
 const { user }= useAuth();
 const navigate = useNavigate();
 const loCation = useLocation();
+const axiosSecure = useAxiosSecure()
   const handleAddToCamp = medical =>{
     if(user && user.email){
       console.log(user.email, medical)
@@ -22,9 +23,18 @@ const loCation = useLocation();
           location,
           participants
        }
-       axios.post('http://localhost:5000/carts', campItem)
+       axiosSecure.post('/carts', campItem)
        .then(res => {
         console.log(res.data)
+        if(res.data.insertedId){
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Join Camp Add Success",
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
        })
 
     }else{
