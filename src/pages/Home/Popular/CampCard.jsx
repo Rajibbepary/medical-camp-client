@@ -2,16 +2,20 @@ import { Link, useLocation, useNavigate} from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import useCart from "../../../hooks/useCart";
 
 const CampCard = ({ camp }) => {
 const {image, name, fees, date, time,location, doctor, participants, _id}  = camp;
+const [participant] = useCart();
+
 const { user }= useAuth();
 const navigate = useNavigate();
 const loCation = useLocation();
-const axiosSecure = useAxiosSecure()
-  const handleAddToCamp = medical =>{
+const axiosSecure = useAxiosSecure();
+const [, refetch] = useCart();
+  const handleAddToCamp = () =>{
     if(user && user.email){
-      console.log(user.email, medical)
+      
        const campItem = {
           campId:_id,
           email:user.email,
@@ -20,6 +24,7 @@ const axiosSecure = useAxiosSecure()
           fees,
           date,
           time,
+          doctor,
           location,
           participants
        }
@@ -34,6 +39,7 @@ const axiosSecure = useAxiosSecure()
             showConfirmButton: false,
             timer: 1500
           });
+          refetch();
         }
        })
 
@@ -66,10 +72,10 @@ const axiosSecure = useAxiosSecure()
               <p className="text-gray-700">🕒 Time: {time}</p>
               <p className="text-gray-700">📍 Location: {location}</p>
               <p className="text-gray-700">👨‍⚕️ Doctor: {doctor}</p>
-              <p className="text-gray-700">👥 Participants: {participants}</p>
+              <p className="text-gray-700">👥 Participants: {participant.length}</p>
              <Link >
              <button
-             onClick={() =>handleAddToCamp(camp) }
+             onClick={handleAddToCamp}
             className="btn btn-outline border-0 mt-4 bg-slate-100 border-orange-300 border-b-4" >
             View Details
           </button>

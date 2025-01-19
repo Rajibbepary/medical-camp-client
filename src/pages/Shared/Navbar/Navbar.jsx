@@ -86,7 +86,7 @@ const Navbar = () => {
               <li className="mt-2 bg-white text-black text-center ">{user?.email}</li>
               <div className="mt-2 bg-white text-black"> <div className="flex gap-2 text-center text-xl justify-center"><IoMdKey /> <MdOutlinePayment /> <IoLocation /></div></div>
               <li className='mt-2 bg-white text-black'>
-                <NavLink to='/dashbord'> Dashbord</NavLink>
+                <NavLink to='/dashboard/analytics'> Dashbord</NavLink>
                 </li>
               <li className='mt-2 bg-white text-black'>
                 <button
