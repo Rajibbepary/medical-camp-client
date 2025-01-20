@@ -94,6 +94,7 @@ const AvailableCamp = () => {
                 className="w-full h-48 object-cover rounded hover:scale-95 transition"
               />
               <h3 className="text-xl font-bold mt-2">{camp.name}</h3>
+              <p className="text-gray-600"> <strong>Fees: {camp.campFees}</strong></p>
               <p className="text-gray-600 mt-1">
                 <strong>Date & Time:</strong> {camp.dateTime}
               </p>

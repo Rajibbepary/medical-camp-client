@@ -2,7 +2,7 @@ import { Link} from "react-router-dom";
 
 
 const CampCard = ({ camp }) => {
-const {image, name, fees, location, professional, dateTime, participants, }  = camp;
+const {image, name, campFees, location, professional, dateTime, participants, }  = camp;
 
 
     return (
@@ -10,7 +10,7 @@ const {image, name, fees, location, professional, dateTime, participants, }  = c
             <div className="bg-white p-6 rounded-lg shadow-md">
               <img src={image} alt={name} className="w-full h-48 object-cover rounded-t-lg" />
               <h2 className="text-2xl font-bold mt-4">{name}</h2>
-              <p className="text-gray-700">💰 Fees: {fees}</p>
+              <p className="text-gray-700">💰 Fees: {campFees}</p>
               {/* <p className="text-gray-700">📅 Date: {dateTime}</p> */}
               <p className="text-gray-700">🕒 Date Time: {dateTime}</p>
               <p className="text-gray-700">📍 Location: {location}</p>
