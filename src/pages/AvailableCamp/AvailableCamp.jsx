@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
 
 const AvailableCamp = () => {
   const [layout, setLayout] = useState("grid-cols-3");
@@ -16,6 +17,7 @@ const AvailableCamp = () => {
       });
   }, []);
 
+  console.log(camps)
  
   const handleLayoutToggle = () => {
     setLayout(layout === "grid-cols-3" ? "grid-cols-2" : "grid-cols-3");
@@ -84,7 +86,7 @@ const AvailableCamp = () => {
         {/* Camp Cards */}
         <div className={`grid gap-4 ${layout}`}>
           {filteredCamps.map((camp) => (
-            <div key={camp.id} className="bg-white shadow rounded p-4">
+            <div key={camp._id} className="bg-white shadow rounded p-4">
               <img
                 referrerPolicy='no-referrer'
                 src={camp?.image}
@@ -105,12 +107,13 @@ const AvailableCamp = () => {
                 <strong>Participants:</strong> {camp.participants}
               </p>
               <p className="text-gray-600 mt-2">{camp.description}</p>
-              <a
-                href={'camp-details'}
+              <Link to={`/campdetails/${camp._id}`}>
+              <button
                 className="inline-block mt-4 bg-blue-500 text-white px-4 py-2 rounded"
               >
                 Details
-              </a>
+              </button>
+              </Link>
             </div>
           ))}
         </div>
