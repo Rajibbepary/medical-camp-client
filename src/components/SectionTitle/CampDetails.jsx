@@ -9,7 +9,7 @@ const CampDetails = () => {
   const [showModal, setShowModal] = useState(false);
   
   return (
-    <div className="p-8">
+    <div className="p-8 ">
       <img
         src={item.image}
         alt={item.name}
@@ -17,19 +17,18 @@ const CampDetails = () => {
       />
       <h1 className="text-3xl font-bold mt-4">{item.name}</h1>
       <p>{item.description}</p>
-      <p>Date: {item.date}</p>
-      <p>Time: {item.time}</p>
+      <p>Date &Time: {item.dateTime}</p>
       <p>Location: {item.location}</p>
-      <p>Fees: ${item.fees}</p>
-      <p>Healthcare Professional: {item.healthcareProfessional}</p>
-      <p>Participants: {item.participantCount}</p>
+      <p>Fees: ${item.campFees}</p>
+      <p>Healthcare Professional: {item.professional}</p>
+      <p>Participants: {item.participants}</p>
       <button
         onClick={() => setShowModal(true)}
         className="mt-4 bg-green-500 text-white py-2 px-6 rounded hover:bg-green-600"
       >
         Join Camp
       </button>
-      {showModal && <Modal camp={''} onClose={() => setShowModal(false)} />}
+      {showModal && <Modal item={item} onClose={() => setShowModal(false)} />}
     </div>
   );
 };

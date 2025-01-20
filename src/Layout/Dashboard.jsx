@@ -3,13 +3,14 @@ import { FaCampground, FaFreeCodeCamp, FaHome, FaRegRegistered } from "react-ico
 import { IoAnalyticsSharp } from "react-icons/io5";
 import { MdOutlinePayment } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
+import useAuth from "../hooks/useAuth";
 
 
 const Dashboard = () => {
-
+const {user} = useAuth()
     //TODO:get isAdmin value from the database
-    const isAdmin = true;
-
+    //const isAdmin = false;
+  const isAdmin= user?.email == 'rajib1234@gmail.com'
 
     return (
         <div className="flex">
@@ -30,7 +31,7 @@ const Dashboard = () => {
                     <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/Payment History'><MdOutlinePayment /> Payment History</NavLink></li>
                     </>
                  }   
-
+ 
                     <div className="divider">or</div>
                     <li className="lg:text-xl font-semibold"><NavLink to='/'><FaHome /> Home</NavLink></li>
                 </ul>

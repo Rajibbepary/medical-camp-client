@@ -1,103 +1,119 @@
-import { useState } from "react";
 
+import { useForm } from 'react-hook-form';
+import useAuth from './../../hooks/useAuth';
+import Swal from 'sweetalert2';
+import useAxiosSecure from '../../hooks/useAxiosSecure';
 
+const Modal = ({ item, onClose }) => {
+  const {user} = useAuth();
+  const axiosSecure = useAxiosSecure();
+    const {name, campFees,location, professional} = item
+    const { register, handleSubmit, reset} = useForm()
+  
+    const onSubmit= async(data) => {
+      console.log(data) 
+     if(user && user.email){
+      const registrationCamp = {
+          name: data.participantName,
+          email: data.participantEmail,
+          age: parseFloat(data.age),
+          phone: data.phone,
+          gender: data.gender,
+          Contact:data.emergencyContact
+      }
+       axiosSecure.post('/joincamps', registrationCamp)
+          .then(res => {
+            console.log(res.data)
+            if(res.data.insertedId){
+              reset();
+              Swal.fire({
+                  position: "top-end",
+                  icon: "success",
+                  title: `${name} is added to the Joinscamp.`,
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+          }
+          })
+     }
 
-const Modal = ({ camp, onClose }) => {
-    const [formData, setFormData] = useState({
-        participantName: "",
-        participantEmail: "",
-        age: "",
-        phone: "",
-        gender: "",
-        emergencyContact: "",
-      });
-    
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prev) => ({ ...prev, [name]: value }));
-      };
-    
-      const handleSubmit = () => {
-        const payload = { ...formData, campId: camp.id };
-        fetch("/api/registrations", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        })
-          .then((res) => res.json())
-          .then(() => {
-            alert("Successfully registered!");
-            onClose();
-          });
-      };
+  }; 
     
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div className="fixed  inset-0 bg-black bg-opacity-50 flex items-center justify-center w-9/12 mx-auto">
         <div className="bg-white p-6 rounded shadow-lg">
-          <h2 className="text-xl font-bold mb-4">Register for {camp.name}</h2>
-          <p>Fees: ${camp.fees}</p>
-          <p>Location: {camp.location}</p>
-          <p>Healthcare Professional: {camp.healthcareProfessional}</p>
-          <input
+          <h2 className="text-xl font-bold mb-2">Register for </h2>
+          <h2 className="text-xl font-bold mb-2">{name}</h2>
+          <p>Fees: ${campFees}</p>
+          <p>Location: {location}</p>
+          <p>Healthcare Professional: {professional}</p>
+         <form onSubmit={handleSubmit(onSubmit)} className='gap-3 '>
+
+         <input
             type="text"
             name="participantName"
+            {...register("participantName")}
             placeholder="Your Name"
-            value={formData.participantName}
-            onChange={handleChange}
-            className="w-full p-2 border rounded mb-2"
+           defaultValue={user?.displayName}
+           disabled
+            className="w-full p-2 border rounded mb-2 mt-4"
           />
           <input
             type="email"
             name="participantEmail"
             placeholder="Your Email"
-            value={formData.participantEmail}
-            onChange={handleChange}
+            {...register("participantEmail")}
+            disabled
+            defaultValue={user?.email}
             className="w-full p-2 border rounded mb-2"
           />
           <input
             type="text"
             name="age"
+            {...register("age" ,{required:true})}
             placeholder="Age"
-            value={formData.age}
-            onChange={handleChange}
             className="w-full p-2 border rounded mb-2"
           />
           <input
             type="text"
             name="phone"
+            {...register("phone", {required:true})}
             placeholder="Phone Number"
-            value={formData.phone}
-            onChange={handleChange}
             className="w-full p-2 border rounded mb-2"
           />
-          <input
-            type="text"
-            name="gender"
-            placeholder="Gender"
-            value={formData.gender}
-            onChange={handleChange}
-            className="w-full p-2 border rounded mb-2"
-          />
+           <select
+        defaultValue='default'
+       {...register("gender", {required:true})}
+      className="select select-bordered w-full mb-2">
+            <option disabled value='default'>Select a Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+    </select>
           <input
             type="text"
             name="emergencyContact"
+            {...register("emergencyContact", {required:true})}
             placeholder="Emergency Contact"
-            value={formData.emergencyContact}
-            onChange={handleChange}
             className="w-full p-2 border rounded mb-2"
           />
           <button
-            onClick={handleSubmit}
-            className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"
-          >
+            className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600" >
             Submit
-          </button>
+         </button>
           <button onClick={onClose} className="ml-4 bg-gray-300 py-2 px-4 rounded">
             Cancel
           </button>
+         </form>
         </div>
       </div>
     );
 };
 
 export default Modal;
+
+    
+// Programming-Hero Instructors
+// data.fees= fees
+// data.time= new\Date
+      
