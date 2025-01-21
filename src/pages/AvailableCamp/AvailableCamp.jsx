@@ -4,18 +4,18 @@ import { Link } from "react-router-dom";
 
 const AvailableCamp = () => {
   const [layout, setLayout] = useState("grid-cols-3");
-  const [searchTerm, setSearchTerm] = useState("");
+  const [search, setSearch] = useState("");
   const [sortOption, setSortOption] = useState("alphabetical");
 
   const [camps, setCamps] = useState([]);
   
   useEffect(() => {
-    fetch("http://localhost:5000/camp")
+    fetch(`http://localhost:5000/camp?search=${search}`)
       .then((res) => res.json())
       .then((data) => {
         setCamps(data);
       });
-  }, []);
+  }, [search]);
 
   console.log(camps)
  
@@ -25,7 +25,7 @@ const AvailableCamp = () => {
 
   
   const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
+    setSearch(e.target.value);
   };
 
   
@@ -36,7 +36,7 @@ const AvailableCamp = () => {
   
   const filteredCamps = camps
     .filter((camp) =>
-      camp.name.toLowerCase().includes(searchTerm.toLowerCase())
+      camp.name.toLowerCase().includes(search.toLowerCase())
     )
     .sort((a, b) => {
       if (sortOption === "alphabetical") {
@@ -63,7 +63,7 @@ const AvailableCamp = () => {
             type="text"
             placeholder="Search camps..."
             className="border p-2 rounded w-full max-w-sm mr-4"
-            value={searchTerm}
+            value={search}
             onChange={handleSearch}
           />
           <select
