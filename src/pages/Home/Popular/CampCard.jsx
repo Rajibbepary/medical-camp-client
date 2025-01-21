@@ -1,8 +1,7 @@
 import { Link} from "react-router-dom";
 
-
 const CampCard = ({ camp }) => {
-const {image, name, campFees, location, professional, dateTime, participants, }  = camp;
+const {image, name, campFees, location, professional, dateTime, participants }  = camp;
 
 
     return (

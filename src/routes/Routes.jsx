@@ -52,7 +52,7 @@ export  const router = createBrowserRouter([
         element:<AnalyTics/>
        },
        {
-        path:'RegisteredCamps',
+        path:'manageregisteredcamps',
         element:<RegisteredCamps/>
        }
       ]

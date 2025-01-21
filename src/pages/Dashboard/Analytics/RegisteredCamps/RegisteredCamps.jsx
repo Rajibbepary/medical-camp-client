@@ -1,12 +1,12 @@
+import useJoinCamp from "../../../../hooks/useJoinCamp";
 
-import useCart from './../../../../hooks/useCart';
+
 
 const RegisteredCamps = () => {
-    const [cart] = useCart();
-   console.log(cart)
+   const [join] = useJoinCamp()
     return (
         <div className='w-11/12 mx-auto'> 
-            <h1 className='text-center mt-5 text-2xl font-semibold'>All Registered Camps {cart.length}</h1>
+            <h1 className='text-center mt-5 text-2xl font-semibold'>All Registered Camps {join.length}</h1>
          
             <div className="overflow-x-auto">
   <table className="table">
@@ -23,18 +23,7 @@ const RegisteredCamps = () => {
       </tr>
     </thead>
     <tbody>
-    {
-        cart.map(item=> <tr key={item._id}>
-            <th>1</th>
-            <td>{item.name}</td>
-            <td>{item.fees}</td>
-            <td>{item.doctor}</td>
-            
-          </tr>
-          
-         )
-         
-    }
+    
      
     </tbody>
   </table>

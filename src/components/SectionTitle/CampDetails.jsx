@@ -33,8 +33,6 @@ const CampDetails = () => {
       <p>Healthcare Professional: {professional}</p>
       <p>Participants: {updatedCamp.participants}</p>
       <button
-        //onClick={() => setShowModal(true)}
-        //onClick={() => handleJoinCamp(camp.id)}
         onClick={() => {
           setShowModal(true);
           handleJoinCamp(_id);

@@ -9,8 +9,8 @@ import useAuth from "../hooks/useAuth";
 const Dashboard = () => {
 const {user} = useAuth()
     //TODO:get isAdmin value from the database
-    //const isAdmin = false;
-  const isAdmin= user?.email == 'rajib1234@gmail.com'
+  //  const isAdmin = false;
+  const isAdmin= user?.email == 'rajib635356@gmail.com'
 
     return (
         <div className="flex">
@@ -22,7 +22,7 @@ const {user} = useAuth()
                         <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/organizer'><CgProfile /> Organizer Profile</NavLink></li>
                     <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/addcamp'><FaFreeCodeCamp /> Add A Camp</NavLink></li>
                     <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/managecamps'> <FaCampground />Manage Camps</NavLink></li>
-                    <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/manageregisteredcamps'><FaRegRegistered /> Manage Registered Camps</NavLink></li>
+                    <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/manageregisteredcamps'><FaRegRegistered /> Registered Camps</NavLink></li>
                     </>:
                     <>
                     <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/analytics'><IoAnalyticsSharp /> Analytics</NavLink></li>
