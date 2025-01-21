@@ -4,10 +4,10 @@ import useAuth from './../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 
-const Modal = ({ item, onClose }) => {
+const Modal = ({ camp, onClose }) => {
   const {user} = useAuth();
   const axiosSecure = useAxiosSecure();
-    const {name, campFees,location, professional} = item
+    const {name, campFees,location, professional} = camp;
     const { register, handleSubmit, reset} = useForm()
   
     const onSubmit= async(data) => {
@@ -17,6 +17,9 @@ const Modal = ({ item, onClose }) => {
           name: data.participantName,
           email: data.participantEmail,
           age: parseFloat(data.age),
+          fees:campFees,
+          pro:professional,
+          campname:name,
           phone: data.phone,
           gender: data.gender,
           Contact:data.emergencyContact
@@ -42,13 +45,12 @@ const Modal = ({ item, onClose }) => {
     return (
         <div className="fixed  inset-0 bg-black bg-opacity-50 flex items-center justify-center w-9/12 mx-auto">
         <div className="bg-white p-6 rounded shadow-lg">
-          <h2 className="text-xl font-bold mb-2">Register for </h2>
+         <form onSubmit={handleSubmit(onSubmit)} className='gap-3 '>
+         <h2 className="text-xl font-bold mb-2">Register for </h2>
           <h2 className="text-xl font-bold mb-2">{name}</h2>
           <p>Fees: ${campFees}</p>
           <p>Location: {location}</p>
           <p>Healthcare Professional: {professional}</p>
-         <form onSubmit={handleSubmit(onSubmit)} className='gap-3 '>
-
          <input
             type="text"
             name="participantName"
