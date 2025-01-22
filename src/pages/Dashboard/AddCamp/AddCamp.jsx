@@ -21,7 +21,7 @@ const AddCamp = () => {
         });
 
        if(res.data.success){
-        const menuItem = {
+        const campItem = {
             professional: data.professinalname,
             name: data.campname,
             location: data.location,
@@ -31,15 +31,15 @@ const AddCamp = () => {
             description: data.description,
             image: res.data.data.display_url
         }
-        console.log(menuItem)
-        const menuRes = await axiosSecure.post('/menu', menuItem);
-        console.log(menuRes.data)
-        if(menuRes.data.insertedId){
+        console.log(campItem)
+        const campRes = await axiosSecure.post('/camp', campItem);
+        console.log(campRes.data)
+        if(campRes.data.insertedId){
             reset();
             Swal.fire({
                 position: "top-end",
                 icon: "success",
-                title: `${data.name} is added to the menu.`,
+                title: `${data.campname} is added to the camp.`,
                 showConfirmButton: false,
                 timer: 1500
               });

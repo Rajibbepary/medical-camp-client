@@ -13,6 +13,7 @@ import AnalyTics from "../pages/Dashboard/Analytics/analytics";
 import RegisteredCamps from "../pages/Dashboard/Analytics/RegisteredCamps/RegisteredCamps";
 import AddCamp from "../pages/Dashboard/AddCamp/AddCamp";
 import ManagCamp from "../pages/Dashboard/ManagCamp/ManagCamp";
+import UpdateItem from "../pages/Dashboard/UpdateItem/UpdateItem";
 
 
 
@@ -60,6 +61,11 @@ export  const router = createBrowserRouter([
        {
           path:'managcamp',
           element:<ManagCamp/>
+       },
+       {
+          path:'updateItem/:id',
+          element:<UpdateItem/>,
+          loader:({params}) => fetch(`http://localhost:5000/camp/${params.id}`)
        },
        {
         path:'manageregisteredcamps',
