@@ -11,6 +11,7 @@ import CampDetails from "../components/SectionTitle/CampDetails";
 import Dashboard from "../Layout/Dashboard";
 import AnalyTics from "../pages/Dashboard/Analytics/analytics";
 import RegisteredCamps from "../pages/Dashboard/Analytics/RegisteredCamps/RegisteredCamps";
+import AddCamp from "../pages/Dashboard/AddCamp/AddCamp";
 
 
 
@@ -50,6 +51,10 @@ export  const router = createBrowserRouter([
        {
         path:'analytics',
         element:<AnalyTics/>
+       },
+       {
+          path:'addcamp',
+          element:<AddCamp/>
        },
        {
         path:'manageregisteredcamps',
