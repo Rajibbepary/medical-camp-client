@@ -21,7 +21,7 @@ const {user} = useAuth()
                     isAdmin ? <>
                         <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/organizer'><CgProfile /> Organizer Profile</NavLink></li>
                     <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/addcamp'><FaFreeCodeCamp /> Add A Camp</NavLink></li>
-                    <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/managecamps'> <FaCampground />Manage Camps</NavLink></li>
+                    <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/managcamp'> <FaCampground />Manage Camps</NavLink></li>
                     <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/manageregisteredcamps'><FaRegRegistered /> Registered Camps</NavLink></li>
                     </>:
                     <>

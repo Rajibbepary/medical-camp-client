@@ -12,6 +12,7 @@ import Dashboard from "../Layout/Dashboard";
 import AnalyTics from "../pages/Dashboard/Analytics/analytics";
 import RegisteredCamps from "../pages/Dashboard/Analytics/RegisteredCamps/RegisteredCamps";
 import AddCamp from "../pages/Dashboard/AddCamp/AddCamp";
+import ManagCamp from "../pages/Dashboard/ManagCamp/ManagCamp";
 
 
 
@@ -55,6 +56,10 @@ export  const router = createBrowserRouter([
        {
           path:'addcamp',
           element:<AddCamp/>
+       },
+       {
+          path:'managcamp',
+          element:<ManagCamp/>
        },
        {
         path:'manageregisteredcamps',

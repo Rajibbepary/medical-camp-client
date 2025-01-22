@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import useJoinCamp from "../../../../hooks/useJoinCamp";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const RegisteredCamps = () => {
   const [data , refetch] = useJoinCamp();
@@ -54,6 +55,9 @@ const axiosSecure = useAxiosSecure();
 
   return (
     <div className="p-6">
+      <Helmet>
+              <title>MCMS | Registered Camps</title>
+            </Helmet>
       <h2 className="text-2xl font-bold mb-4">Registered Camps</h2>
       <table className="min-w-full bg-white border border-gray-200">
         <thead>

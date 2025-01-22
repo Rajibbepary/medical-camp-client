@@ -1,23 +1,20 @@
 import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 import { useForm } from "react-hook-form";
-//import useAxiosPublic from "../../../hooks/useAxiosPublic";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { GiCampfire } from "react-icons/gi";
-
-
+import { Helmet } from "react-helmet-async";
+import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const AddCamp = () => {
 
     const { register, handleSubmit, reset } = useForm()
-    //const axiosPublic = useAxiosPublic();
     const axiosSecure = useAxiosSecure();
     const onSubmit= async(data) => {
         console.log(data) 
         const imageFile ={image: data.image[0]}
-        const res = await post(image_hosting_api,imageFile,{
+        const res = await axiosSecure.post(image_hosting_api,imageFile,{
            headers:{
             'content-type' : 'multipart/form-data'
            }
@@ -25,11 +22,12 @@ const AddCamp = () => {
 
        if(res.data.success){
         const menuItem = {
-            professinalname: data.professinalname,
+            professional: data.professinalname,
+            name: data.campname,
             location: data.location,
-            fees: parseFloat(data.fees),
-            datetime: data.datetime,
-            participant: data.participant,
+            campFees: parseFloat(data.fees),
+            dateTime: data.datetime,
+            participants: data.participant,
             description: data.description,
             image: res.data.data.display_url
         }
@@ -51,6 +49,9 @@ const AddCamp = () => {
     }; 
     return (
        <div>
+        <Helmet>
+                <title>MCMS | Add a Camp</title>
+              </Helmet>
        <SectionTitle subHeading={"What's Now"} heading={"Add A Camp"}></SectionTitle>
        <div className="w-10/12 mx-auto bg-[hsla(0,0%,95%,1)] p-6">
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -135,8 +136,8 @@ const AddCamp = () => {
  {...register("image", {required:true})}
 type="file" className="file-input w-full max-w-xs" />
 </div>
-    <button className="btn bg-gradient-to-r from-[#5d03ccd8] from-10% via-[#292484] via-30% to-[hsla(36,58%,45%,1)] to-90% text-white">
-        Add Camp <GiCampfire />
+    <button className="btn bg-gradient-to-r from-[#5d03ccd8] from-10% via-[#292484] via-30% to-[#231501] to-90% text-white">
+        Add Camp <GiCampfire className=" text-red-400 text-2xl" />
     </button>
     </form>
             </div>
