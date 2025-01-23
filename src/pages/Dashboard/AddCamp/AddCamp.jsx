@@ -27,7 +27,7 @@ const AddCamp = () => {
             location: data.location,
             campFees: parseFloat(data.fees),
             dateTime: data.datetime,
-            participants: data.participant,
+            participants: parseInt(data.participant),
             description: data.description,
             image: res.data.data.display_url
         }
