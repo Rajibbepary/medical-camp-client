@@ -77,7 +77,7 @@ const UpdateItem = () => {
               
             </label>
             <div className="lg:flex gap-4">
-            <label className="form-control w-full ">
+            <label className="form-control w-full">
               <div className="label">
                 <span className="label-text">Location*</span>
               </div>

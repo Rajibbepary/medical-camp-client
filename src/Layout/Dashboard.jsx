@@ -9,9 +9,9 @@ import { Helmet } from "react-helmet-async";
 
 const Dashboard = () => {
 const {user} = useAuth()
-    //TODO:get isAdmin value from the database
+ 
   //  const isAdmin = false;
-  const isAdmin= user?.email == ''
+  const isAdmin= user?.email == 'rajib635356@gmail.com'
 
     return (
         <div className="flex">
@@ -23,7 +23,7 @@ const {user} = useAuth()
 
                  {
                     isAdmin ? <>
-                        <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/organizer'><CgProfile /> Organizer Profile</NavLink></li>
+                        <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/addminprofile'><CgProfile /> Organizer Profile</NavLink></li>
                     <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/addcamp'><FaFreeCodeCamp /> Add A Camp</NavLink></li>
                     <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/managcamp'> <FaCampground />Manage Camps</NavLink></li>
                     <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/manageregisteredcamps'><FaRegRegistered /> Registered Camps</NavLink></li>

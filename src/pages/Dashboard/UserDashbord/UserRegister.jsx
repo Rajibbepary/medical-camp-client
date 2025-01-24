@@ -1,5 +1,5 @@
 
-//import { useState } from "react";
+import { useState } from "react";
 import useRegisterCamp from "../../../hooks/useRegisterCamp";
 import { Link } from "react-router-dom";
 
@@ -8,27 +8,27 @@ import { Link } from "react-router-dom";
 const UserRegister = () => {
   const[camps] = useRegisterCamp()
   
-  //  const [campData, setCampData] = useState(camps);
-  //   const handlePayment = async (id) => {
-  //       const transactionId = "txn_" + Math.random().toString(36).substring(7); // Mock transaction ID
-  //       const updatedCamps = campData.map((camp) =>
-  //         camp._id === id
-  //           ? { ...camp, paymentStatus: "Paid", transactionId }
-  //           : camp
-  //       );
-  //       setCampData(updatedCamps);
-  //       alert(`Payment Successful! Transaction ID: ${transactionId}`);
-  //     };
+   const [campData, setCampData] = useState(camps);
+    const handlePayment = async (id) => {
+        const transactionId = "txn_" + Math.random().toString(36).substring(7); // Mock transaction ID
+        const updatedCamps = campData.map((camp) =>
+          camp._id === id
+            ? { ...camp, paymentStatus: "Paid", transactionId }
+            : camp
+        );
+        setCampData(updatedCamps);
+        alert(`Payment Successful! Transaction ID: ${transactionId}`);
+      };
     
-  //     const handleCancel = (id) => {
-  //       const updatedCamps = campData.filter((camp) => camp._id !== id);
-  //       setCampData(updatedCamps);
-  //       alert("Registration canceled successfully.");
-  //     };
+      const handleCancel = (id) => {
+        const updatedCamps = campData.filter((camp) => camp._id !== id);
+        setCampData(updatedCamps);
+        alert("Registration canceled successfully.");
+      };
     
-  //     const handleFeedback = (id) => {
-  //       alert(`Provide feedback for camp ID: ${id}`);
-  //     };
+      const handleFeedback = (id) => {
+        alert(`Provide feedback for camp ID: ${id}`);
+      };
     return (
         <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">My Camps</h1>
@@ -56,7 +56,7 @@ const UserRegister = () => {
                 ) : (
                   <button
                     className="bg-blue-500 text-white px-2 py-1 rounded"
-                    //onClick={() => handlePayment(camp._id)}
+                    onClick={() => handlePayment(camp._id)}
                   >
                     Pay
                   </button>
@@ -71,7 +71,7 @@ const UserRegister = () => {
                 {camp.paymentStatus === "Paid" && (
                   <button
                     className="bg-green-500 text-white px-2 py-1 rounded"
-                   // onClick={() => handleFeedback(camp._id)}
+                    onClick={() => handleFeedback(camp._id)}
                   >
                     Feedback
                   </button>
@@ -83,7 +83,7 @@ const UserRegister = () => {
                       : "bg-red-500 text-white"
                   } px-2 py-1 rounded`}
                   disabled={camp.paymentStatus === "Paid"}
-                 // onClick={() => handleCancel(camp._id)}
+                  onClick={() => handleCancel(camp._id)}
                 >
                   Cancel
                 </button>

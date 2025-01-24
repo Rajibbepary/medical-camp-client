@@ -16,6 +16,7 @@ import UpdateItem from "../pages/Dashboard/UpdateItem/UpdateItem";
 import UserRegister from "../pages/Dashboard/UserDashbord/UserRegister";
 import AnalyTics from "../pages/Dashboard/UserDashbord/analyTics";
 import Payment from "../pages/Dashboard/Payment/Payment";
+import AdminProfile from "../pages/Dashboard/AddminProfile/AdminProfile";
 
 
 
@@ -53,7 +54,10 @@ export  const router = createBrowserRouter([
       path:'dashboard',
       element:<Dashboard/>,
       children: [
-     
+        {
+          path:'addminprofile',
+          element:<AdminProfile/>
+        },
        {
           path:'addcamp',
           element:<AddCamp/>
