@@ -9,11 +9,14 @@ import Register from "../pages/Register/Register";
 import AvailableCamp from "../pages/AvailableCamp/AvailableCamp";
 import CampDetails from "../components/SectionTitle/CampDetails";
 import Dashboard from "../Layout/Dashboard";
-import AnalyTics from "../pages/Dashboard/Analytics/analytics";
 import RegisteredCamps from "../pages/Dashboard/Analytics/RegisteredCamps/RegisteredCamps";
 import AddCamp from "../pages/Dashboard/AddCamp/AddCamp";
 import ManagCamp from "../pages/Dashboard/ManagCamp/ManagCamp";
 import UpdateItem from "../pages/Dashboard/UpdateItem/UpdateItem";
+import UserRegister from "../pages/Dashboard/UserDashbord/UserRegister";
+import AnalyTics from "../pages/Dashboard/UserDashbord/analyTics";
+import Payment from "../pages/Dashboard/Payment/Payment";
+
 
 
 
@@ -50,10 +53,7 @@ export  const router = createBrowserRouter([
       path:'dashboard',
       element:<Dashboard/>,
       children: [
-       {
-        path:'analytics',
-        element:<AnalyTics/>
-       },
+     
        {
           path:'addcamp',
           element:<AddCamp/>
@@ -70,6 +70,19 @@ export  const router = createBrowserRouter([
        {
         path:'manageregisteredcamps',
         element:<RegisteredCamps/>
+       },
+       //user dashboard route
+       {
+          path:'useregister',
+          element:<UserRegister/>
+       },
+       {
+        path:"analytics",
+        element:<AnalyTics></AnalyTics>
+       },
+       {
+        path:'payment',
+        element:<Payment/>
        }
       ]
     }

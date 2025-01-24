@@ -4,16 +4,20 @@ import { IoAnalyticsSharp } from "react-icons/io5";
 import { MdOutlinePayment } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 
 const Dashboard = () => {
 const {user} = useAuth()
     //TODO:get isAdmin value from the database
   //  const isAdmin = false;
-  const isAdmin= user?.email == 'rajib635356@gmail.com'
+  const isAdmin= user?.email == ''
 
     return (
         <div className="flex">
+             <Helmet>
+                                   <title>MCMS | Dashboard</title>
+                                 </Helmet>
             <div className="w-74 min-h-screen bg-slate-500  text-white ">
                 <ul className="menu flex gap-2 px-3">
 
@@ -27,7 +31,7 @@ const {user} = useAuth()
                     <>
                     <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/analytics'><IoAnalyticsSharp /> Analytics</NavLink></li>
                     <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/Participant'><CgProfile /> Participant Profile</NavLink></li>
-                    <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/RegisteredCamps'> <FaCampground />Registered Camps</NavLink></li>
+                    <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/useregister'> <FaCampground />Registered Camps</NavLink></li>
                     <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/Payment History'><MdOutlinePayment /> Payment History</NavLink></li>
                     </>
                  }   
