@@ -18,8 +18,8 @@ const AdminProfile = () => {
     
      
       const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setEditData((prev) => ({ ...prev, [name]: value }));
+        const { name,  defaultValue } = e.target;
+        setEditData((prev) => ({ ...prev, [name]:  defaultValue }));
       };
     
      
@@ -61,7 +61,6 @@ const AdminProfile = () => {
                 type="text"
                 name="name"
                 defaultValue={editData.displayName}
-               // value={editData.displayName}
                 onChange={handleInputChange}
                 className="mt-1 block w-full px-4 py-2 border rounded"
               />
@@ -72,7 +71,6 @@ const AdminProfile = () => {
                 type="text"
                 name="image"
                 defaultValue={editData.photoURL}
-                //value={editData.photoURL}
                 onChange={handleInputChange}
                 className="mt-1 block w-full px-4 py-2 border rounded"
               />
@@ -83,7 +81,6 @@ const AdminProfile = () => {
                 type="email"
                 name="contact"
                 defaultValue={editData.email}
-               // value={editData.email}
                 onChange={handleInputChange}
                 className="mt-1 block w-full px-4 py-2 border rounded"
               />

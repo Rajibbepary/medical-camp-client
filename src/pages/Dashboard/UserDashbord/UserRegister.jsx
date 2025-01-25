@@ -9,16 +9,16 @@ const UserRegister = () => {
   const[camps] = useRegisterCamp()
   
    const [campData, setCampData] = useState(camps);
-    const handlePayment = async (id) => {
-        const transactionId = "txn_" + Math.random().toString(36).substring(7); // Mock transaction ID
-        const updatedCamps = campData.map((camp) =>
-          camp._id === id
-            ? { ...camp, paymentStatus: "Paid", transactionId }
-            : camp
-        );
-        setCampData(updatedCamps);
-        alert(`Payment Successful! Transaction ID: ${transactionId}`);
-      };
+    // const handlePayment = async (id) => {
+    //     const transactionId = "txn_" + Math.random().toString(36).substring(7); 
+    //     const updatedCamps = campData.map((camp) =>
+    //       camp._id === id
+    //         ? { ...camp, paymentStatus: "Paid", transactionId }
+    //         : camp
+    //     );
+    //     setCampData(updatedCamps);
+    //     alert(`Payment Successful! Transaction ID: ${transactionId}`);
+    //   };
     
       const handleCancel = (id) => {
         const updatedCamps = campData.filter((camp) => camp._id !== id);
@@ -56,7 +56,7 @@ const UserRegister = () => {
                 ) : (
                   <button
                     className="bg-blue-500 text-white px-2 py-1 rounded"
-                    onClick={() => handlePayment(camp._id)}
+                    //onClick={() => handlePayment(camp._id)}
                   >
                     Pay
                   </button>

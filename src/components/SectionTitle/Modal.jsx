@@ -57,7 +57,7 @@ const Modal = ({ camp, onClose }) => {
             {...register("participantName")}
             placeholder="Your Name"
            defaultValue={user?.displayName}
-           disabled
+          // disabled
             className="w-full p-2 border rounded mb-2 mt-4"
           />
           <input

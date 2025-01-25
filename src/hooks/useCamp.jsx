@@ -31,7 +31,7 @@ const useCamp = () => {
 
 
 
-return [camp, loading, refetch ]
+return [camp,  refetch, loading ]
 
 };
 

@@ -2,30 +2,39 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from './../../../hooks/useAxiosSecure';
 import useRegisterCamp from "../../../hooks/useRegisterCamp";
+import useAuth from './../../../hooks/useAuth';
 
 
 
 
 const CheckoutForm = () => {
-
+    const {user} = useAuth();
     const [error, setError] = useState('')
-    const[clientSecret, setClientSecret] =useState('')
+    const[clientSecret, setClientSecret] = useState('')
+    const [transactionId, setTransactionId] = useState('');
     const stripe = useStripe();
     const elements = useElements();
     const axiosSecure = useAxiosSecure();
-    const[campfees] = useRegisterCamp()
-    const totalfees= campfees.reduce( (total, item) => total + item.fees, 0)
+    const [campfees] = useRegisterCamp()
+    console.log(campfees)
+    const totalfees = campfees?.reduce((total, item) => total + (item.fees || 0), 0);
+    console.log(totalfees)
 
-    useEffect(() =>{
-        axiosSecure.post('/create-payment-intent', {price: totalfees})
-        .then(res => {
-            console.log(res.data.clientSecret);
-            setClientSecret(res.data.clientSecret);
-        })
-    }, [axiosSecure, totalfees])
+   
+    useEffect(() => {
+        if (totalfees > 0) {
+            axiosSecure.post('/create-payment-intent', { price: totalfees })
+                .then(res => {
+                    console.log('Client Secret:', res.data.clientSecret);
+                    setClientSecret(res.data.clientSecret);
+                })
+                .catch(err => {
+                    console.error('Error fetching client secret:', err);
+                });
+        }
+    }, [axiosSecure, totalfees]);
+    
 
-    
-    
         const handleSubmit = async (event) => {
           event.preventDefault();
           
@@ -51,7 +60,26 @@ const CheckoutForm = () => {
             console.log('[PaymentMethod]', paymentMethod);
             setError('')
           }
+          //confirm payment
+          const { paymentIntent, error:confirmErr } = await stripe.confirmCardPayment(clientSecret, {
+            payment_method:{
+                card: card,
+                billing_details: {
+                    email: user?.email || 'anonymous',
+                    name:user?.displayName || 'anonymous'
+                }
+            }
+          })
 
+          if(confirmErr){
+            console.log('confirm error')
+          }else{
+            console.log('payment intent',paymentIntent)
+            if(paymentIntent.status === 'succeeded'){
+                console.log('transaction id', paymentIntent.id)
+                setTransactionId(paymentIntent.id);
+            }
+          }
 
         };
       
@@ -81,6 +109,7 @@ const CheckoutForm = () => {
                 Pay
             </button>
             <p className="text-red-500">{error}</p>
+            {transactionId && <p className="text-green-600">Your transation id: {transactionId}</p>}
         </form>
     );
 };
