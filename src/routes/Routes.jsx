@@ -17,6 +17,8 @@ import UserRegister from "../pages/Dashboard/UserDashbord/UserRegister";
 import AnalyTics from "../pages/Dashboard/UserDashbord/analyTics";
 import Payment from "../pages/Dashboard/Payment/Payment";
 import AdminProfile from "../pages/Dashboard/AddminProfile/AdminProfile";
+import PaymentHistory from "../pages/Dashboard/PaymentHistory/PaymentHistory";
+import UserProfile from "../pages/Dashboard/UserProfile/UserProfile";
 
 
 
@@ -85,8 +87,16 @@ export  const router = createBrowserRouter([
         element:<AnalyTics></AnalyTics>
        },
        {
+        path:'userprofile',
+        element:<UserProfile/>
+       },
+       {
         path:'payment',
         element:<Payment/>
+       },
+       {
+        path:'paymenthistory',
+        element:<PaymentHistory></PaymentHistory>
        }
       ]
     }

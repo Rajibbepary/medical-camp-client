@@ -14,7 +14,7 @@ const {user} = useAuth()
   const isAdmin= user?.email == ''
 
     return (
-        <div className="flex">
+        <div className="flex lg:flex-row max-sm:flex-col ">
              <Helmet>
                                    <title>MCMS | Dashboard</title>
                                  </Helmet>
@@ -30,9 +30,9 @@ const {user} = useAuth()
                     </>:
                     <>
                     <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/analytics'><IoAnalyticsSharp /> Analytics</NavLink></li>
-                    <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/Participant'><CgProfile /> Participant Profile</NavLink></li>
+                    <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/userprofile'><CgProfile /> Participant Profile</NavLink></li>
                     <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/useregister'> <FaCampground />Registered Camps</NavLink></li>
-                    <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/Payment History'><MdOutlinePayment /> Payment History</NavLink></li>
+                    <li className="lg:text-xl font-semibold"><NavLink to='/dashboard/paymenthistory'><MdOutlinePayment /> Payment History</NavLink></li>
                     </>
                  }   
  

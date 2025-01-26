@@ -3,29 +3,27 @@ import { AuthContext } from "../../../providers/AuthProvider";
 
 
 
-const AdminProfile = () => {
-  const { user } = useContext(AuthContext)
-
-  const [profile, setProfile] = useState(user);
+const UserProfile = () => {
+     const { user } = useContext(AuthContext)
     
-      const [isEditing, setIsEditing] = useState(false);
-      const [editData, setEditData] = useState(profile);
-    
-     
-      const handleInputChange = (e) => {
-        const { name,  defaultValue } = e.target;
-        setEditData((prev) => ({ ...prev, [name]:  defaultValue }));
-      };
-    
-     
-      const handleFormSubmit = (e) => {
-        e.preventDefault();
-        setProfile(editData); 
-        setIsEditing(false); 
-      };
-
+      const [profile, setProfile] = useState(user);
+        
+          const [isEditing, setIsEditing] = useState(false);
+          const [editData, setEditData] = useState(profile);
+        
+         
+          const handleInputChange = (e) => {
+            const { name,  defaultValue } = e.target;
+            setEditData((prev) => ({ ...prev, [name]:  defaultValue }));
+          };
+        
+         
+          const handleFormSubmit = (e) => {
+            e.preventDefault();
+            setProfile(editData); 
+            setIsEditing(false); 
+          };
     return (
-       
         <div className="max-w-md mx-auto p-4 bg-white shadow-lg rounded-lg">
         {!isEditing ? (
           <div>
@@ -101,4 +99,4 @@ const AdminProfile = () => {
     );
 };
 
-export default AdminProfile;
+export default UserProfile;

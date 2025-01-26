@@ -10,7 +10,6 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 const ManagCamp = () => {
 
 const [camp, refetch] = useCamp();
-console.log(refetch)
 const axiosSecure = useAxiosSecure();
 const handleDeleteItem = (item) =>{
     Swal.fire({

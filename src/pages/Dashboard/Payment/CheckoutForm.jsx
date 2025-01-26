@@ -1,8 +1,11 @@
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import useAxiosSecure from './../../../hooks/useAxiosSecure';
-import useRegisterCamp from "../../../hooks/useRegisterCamp";
 import useAuth from './../../../hooks/useAuth';
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
+import useJoinCamp from "../../../hooks/useJoinCamp";
+
 
 
 
@@ -15,7 +18,8 @@ const CheckoutForm = () => {
     const stripe = useStripe();
     const elements = useElements();
     const axiosSecure = useAxiosSecure();
-    const [campfees] = useRegisterCamp()
+   const [campfees] = useJoinCamp()
+    const navigate = useNavigate();
     console.log(campfees)
     const totalfees = campfees?.reduce((total, item) => total + (item.fees || 0), 0);
     console.log(totalfees)
@@ -78,6 +82,30 @@ const CheckoutForm = () => {
             if(paymentIntent.status === 'succeeded'){
                 console.log('transaction id', paymentIntent.id)
                 setTransactionId(paymentIntent.id);
+
+                // now save the payment in the database
+
+                const payment = {
+                    email: user?.email,
+                    displayName: user?.displayName,
+                    fees: totalfees,
+                    transactionId: paymentIntent.id,
+                     campIds : campfees.map(camp => camp._id),
+                     status: 'pending',
+                }
+
+             const res = await axiosSecure.post('/payments', payment)
+             console.log('payment saved',res.data);
+             if(res.data?.paymentResult?.insertedId){
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Thank you for the payment",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                  navigate('/dashboard/paymenthistory')
+             }
             }
           }
 
