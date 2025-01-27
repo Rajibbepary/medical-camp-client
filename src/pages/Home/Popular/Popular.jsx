@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Popular = () => {
     const [camps, setCamps] = useState([]);
      useEffect(() => {
-        fetch("http://localhost:5000/camp")
+        fetch("https://medical-camp-server-iota.vercel.app/camp")
           .then((res) => res.json())
           .then((data) => {
             setCamps(data);

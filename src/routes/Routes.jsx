@@ -39,7 +39,7 @@ export  const router = createBrowserRouter([
           {
             path:"campdetails/:id",
             element:<CampDetails/>,
-            loader:({params}) => fetch(`http://localhost:5000/camp/${params.id}`)
+            loader:({params}) => fetch(`https://medical-camp-server-iota.vercel.app/camp/${params.id}`)
           },
         {
           path:'login',
@@ -71,7 +71,7 @@ export  const router = createBrowserRouter([
        {
           path:'updateItem/:id',
           element:<UpdateItem/>,
-          loader:({params}) => fetch(`http://localhost:5000/camp/${params.id}`)
+          loader:({params}) => fetch(`https://medical-camp-server-iota.vercel.app/camp/${params.id}`)
        },
        {
         path:'manageregisteredcamps',

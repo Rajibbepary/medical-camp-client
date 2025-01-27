@@ -11,7 +11,7 @@ const AvailableCamp = () => {
   
 
   useEffect(() => {
-    fetch(`https://medical-camp-server-q8vfu0j8x-rajib21s-projects.vercel.app/camp?search=${search}`)
+    fetch(`https://medical-camp-server-iota.vercel.app/camp?search=${search}`)
       .then((res) => res.json())
       .then((data) => {
         setCamps(data);
