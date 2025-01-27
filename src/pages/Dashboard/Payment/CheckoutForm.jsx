@@ -23,8 +23,10 @@ const CheckoutForm = () => {
     console.log(campfees)
     const totalfees = campfees?.reduce((total, item) => total + (item.fees || 0), 0);
     console.log(totalfees)
-
+    
    
+  
+
     useEffect(() => {
         if (totalfees > 0) {
             axiosSecure.post('/create-payment-intent', { price: totalfees })

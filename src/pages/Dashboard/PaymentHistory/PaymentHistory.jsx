@@ -4,7 +4,9 @@ import useAuth from './../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 
 
+
 const PaymentHistory = () => {
+ 
     const { user } = useAuth();
    // console.log(user);
     const axiosSecure = useAxiosSecure();
@@ -16,7 +18,10 @@ const PaymentHistory = () => {
         }
       
     })
-    console.log(payments)
+    
+console.log(payments)
+    
+
     return (
         <div>
             <h2>Total Payments: {payments.length}</h2>
@@ -28,6 +33,7 @@ const PaymentHistory = () => {
         <th></th>
         <th>Name</th>
         <th>Fees</th>
+        <th>Transaction Id</th>
         <th>Payment Status</th>
       </tr>
     </thead>
@@ -35,9 +41,10 @@ const PaymentHistory = () => {
       {
         payments.map((payment, index) =><tr key={payment._id}>
         <th>{index + 1}</th>
-        {payment.displayName}
+        {user.displayName}
         <td>$ {payment.fees}</td>
-        <td ><button className='btn btn-sm rounded-full bg-green-500'>{payment.status}</button></td>
+        <td>{payment.transactionId}</td>
+        <td >{payment.status}</td>
       </tr>)
       }
       
