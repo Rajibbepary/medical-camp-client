@@ -87,14 +87,17 @@ const AvailableCamp = () => {
         {/* Camp Cards */}
         <div className={`grid gap-4 ${layout}`}>
           {filteredCamps.map((camp) => (
-            <div key={camp._id} className="bg-white shadow rounded p-4">
+            <div key={camp._id} className="bg-white  cursor-pointer group shadow rounded p-4">
               <img
                 referrerPolicy='no-referrer'
                 src={camp?.image}
                 alt={camp.name}
-                className="w-full h-48 object-cover rounded hover:scale-95 transition"
+                className="w-full h-48 object-cover rounded group-hover:scale-110 transition"
               />
-              <h3 className="text-xl font-bold mt-2">{camp.name}</h3>
+              {/* card div */}
+         
+
+             <h3 className="text-xl font-bold mt-2">{camp.name}</h3>
               <p className="text-gray-600"> <strong>Fees: {camp.campFees}</strong></p>
               <p className="text-gray-600 mt-1">
                 <strong>Date & Time:</strong> {camp.dateTime}
@@ -108,13 +111,13 @@ const AvailableCamp = () => {
               <p className="text-gray-600">
                 <strong>Participants:</strong> {camp.participants}
               </p>
+            
               <p className="text-gray-600 mt-2">{camp.description}</p>
               <Link to={`/campdetails/${camp._id}`}>
               <button
-                className="inline-block mt-4 bg-blue-500 text-white px-4 py-2 rounded"
-              >
-                Details
-              </button>
+            className="btn btn-outline border-0 mt-4 bg-slate-100 border-orange-300 border-b-4" >
+            View Details
+          </button>
               </Link>
             </div>
           ))}
