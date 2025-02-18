@@ -11,14 +11,14 @@ const Navbar = () => {
 
   const { user, logOut } = useContext(AuthContext)
 
-    const links = <div className='flex max-sm:bg-none md:flex-col max-sm:text-black uppercase max-sm:flex-col gap-1'>
+    const links = <div className='flex max-sm:bg-none max-md:flex-col max-sm:text-black uppercase max-sm:flex-col gap-1'>
     <li><NavLink to="/">Home</NavLink></li>
     <li><NavLink to='/available'>Available Camps</NavLink></li>
    
     </div>
 
     return (
-        <div className="navbar sticky top-0 bg-opacity-40 backdrop-blur-sm max-w-screen-xl bg-black text-white">
+        <div className="navbar sticky top-0 bg-opacity-40 backdrop-blur-sm z-40 max-w-screen-xl bg-black text-white">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
