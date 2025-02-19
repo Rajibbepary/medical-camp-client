@@ -43,7 +43,7 @@ const Modal = ({ camp, onClose }) => {
   }; 
     
     return (
-        <div className="fixed  inset-0 bg-black bg-opacity-50 flex items-center justify-center w-9/12 mx-auto">
+        <div className="fixed z-50 mt-5 inset-0 bg-black bg-opacity-50 flex items-center justify-center w-9/12 mx-auto">
         <div className="bg-white p-6 rounded shadow-lg">
          <form onSubmit={handleSubmit(onSubmit)} className='gap-3 '>
          <h2 className="text-xl font-bold mb-2">Register for </h2>
